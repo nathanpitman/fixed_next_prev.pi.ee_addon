@@ -2,9 +2,9 @@
 
 $plugin_info = array(
   'pi_name' => 'fixed_next_prev',
-  'pi_version' =>'1.0',
+  'pi_version' =>'1.1',
   'pi_author' =>'Nathan Pitman & Edits by Paul Cripps',
-  'pi_author_url' => 'http://www.ninefour.co.uk/labs',
+  'pi_author_url' => 'http://www.nathanpitman.com',
   'pi_description' => '',
   'pi_usage' => '{exp:fixed_next_prev entry_id="current_entry_id" fixed_order="entry_ids_to_navigate"}',
   );
@@ -24,21 +24,21 @@ class fixed_next_prev {
         $variables['prev_entry_url_title'] = NULL;
         
         // Adds a total count of the entry IDS, eg X of 15
-		$variables['total_entries_count'] = NULL;
-		// Adds the current entry count eg 1 of X
-		$variables['entry_current_count'] = NULL;
+	$variables['total_entries_count'] = NULL;
+	// Adds the current entry count eg 1 of X
+	$variables['entry_current_count'] = NULL;
 		
         $entry_id = ee()->TMPL->fetch_param('entry_id', NULL);
         $fixed_order = ee()->TMPL->fetch_param('fixed_order', NULL);
 
         $entry_ids = explode('|', $fixed_order);
 		
-		$count = count($entry_ids);
-		$variables['total_entries_count'] = $count - 1;
+	$count = count($entry_ids);
+	$variables['total_entries_count'] = $count - 1;
 		
         $index = array_search($entry_id, $entry_ids);		
-		// Set current entry count
-		$variables['entry_current_count'] = $index + 1; 
+	// Set current entry count
+	$variables['entry_current_count'] = $index + 1; 
 		
         if($index !== FALSE)
         {
